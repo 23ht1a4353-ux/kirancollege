@@ -360,7 +360,7 @@
         <!-- Date -->
         <div class="input-box">
             <label>Date of Birth</label>
-            <input type="date">
+            <input id="dob" type="date">
         </div>
 
         <!-- Department -->
@@ -390,11 +390,11 @@
 
             <div class="gender">
 
-                <label><input type="radio" name="gender"> Male</label>
+                <label><input type="radio" name="gender" value="male" checked> Male</label>
 
-                <label><input type="radio" name="gender"> Female</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
 
-                <label><input type="radio" name="gender"> Other</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
 
             </div>
 
@@ -428,6 +428,17 @@
     </form>
 
 </div>
+
+<script>
+  const dobInput = document.getElementById('dob');
+  if (dobInput) {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    dobInput.value = `${yyyy}-${mm}-${dd}`;
+  }
+</script>
 
 </body>
 </html>
