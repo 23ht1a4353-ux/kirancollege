@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maximum Difference in a List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        h3 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Maximum Profit Calculator</h2>
+
+    <input type="number" id="n" placeholder="Enter Number of Days">
+
+    <input type="text" id="prices" placeholder="Enter Prices (space separated)">
+
+    <button onclick="findProfit()">Calculate</button>
+
+    <h3 id="result"></h3>
+</div>
+
+<script>
+function findProfit() {
+    let n = parseInt(document.getElementById("n").value);
+
+    let prices = document.getElementById("prices").value
+        .trim()
+        .split(" ")
+        .map(Number);
+
+    if (prices.length !== n) {
+        document.getElementById("result").innerHTML =
+            "Please enter exactly " + n + " prices.";
+        return;
+    }
+
+    let minPrice = prices[0];
+    let maxProfit = 0;
+
+    for (let i = 1; i < n; i++) {
+        if (prices[i] - minPrice > maxProfit) {
+            maxProfit = prices[i] - minPrice;
+        }
+
+        if (prices[i] < minPrice) {
+            minPrice = prices[i];
+        }
+    }
+
+    document.getElementById("result").innerHTML =
+        "Maximum Profit = " + maxProfit;
+}
+</script>
+
+</body>
+</html>

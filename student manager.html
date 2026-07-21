@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+body{
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+.container{
+    width:800px;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+h1{
+    text-align:center;
+    color:#0d47a1;
+    margin-bottom:20px;
+} 
+fieldset{
+    border:2px solid #0d47a1;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:8px;
+}
+legend{
+    color:#0d47a1;
+    font-weight:bold;
+    padding:0 10px;
+}
+.row{
+    display:flex;
+    gap:15px;
+    margin-bottom:15px;
+}
+.col{
+    flex:1;
+}
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+input,select,textarea{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+textarea{
+    resize:none;
+}
+.gender input,
+.course input{
+    width:auto;
+    margin-right:5px;
+}
+.btns{
+    text-align:center;
+}
+button{
+    background:#0d47a1;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin:5px;
+    font-size:16px;
+}
+button:hover{
+    background:#1565c0;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🎓 Student Management System</h1>
+
+<form>
+
+<fieldset>
+<legend>Student Details</legend>
+
+<div class="row">
+<div class="col">
+<label>Student ID</label>
+<input type="text" placeholder="Enter ID">
+</div>
+
+<div class="col">
+<label>Full Name</label>
+<input type="text" placeholder="Enter Name">
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<label>Email</label>
+<input type="email" placeholder="Enter Email">
+</div>
+
+<div class="col">
+<label>Phone</label>
+<input type="tel" placeholder="Enter Phone">
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<label>Date of Birth</label>
+<input type="date">
+</div>
+
+<div class="col">
+<label>Department</label>
+<select>
+<option>Computer Science</option>
+<option>Information Technology</option>
+<option>Electronics</option>
+<option>Mechanical</option>
+<option>Civil</option>
+</select>
+</div>
+</div>
+
+<label>Gender</label>
+<div class="gender">
+<input type="radio" name="g">Male
+<input type="radio" name="g">Female
+<input type="radio" name="g">Other
+</div>
+
+<br>
+
+<label>Courses</label>
+<div class="course">
+<input type="checkbox">HTML
+<input type="checkbox">CSS
+<input type="checkbox">JavaScript
+<input type="checkbox">Java
+<input type="checkbox">Python
+</div>
+
+</fieldset>
+
+<fieldset>
+<legend>Address</legend>
+
+<label>Address</label>
+<textarea rows="4"></textarea>
+
+<div class="row">
+<div class="col">
+<label>City</label>
+<input type="text">
+</div>
+
+<div class="col">
+<label>State</label>
+<input type="text">
+</div>
+
+<div class="col">
+<label>PIN Code</label>
+<input type="number">
+</div>
+</div>
+
+</fieldset>
+
+<fieldset>
+<legend>Parent Details</legend>
+
+<div class="row">
+<div class="col">
+<label>Father Name</label>
+<input type="text">
+</div>
+
+<div class="col">
+<label>Mother Name</label>
+<input type="text">
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<label>Parent Mobile</label>
+<input type="tel">
+</div>
+
+<div class="col">
+<label>Student Photo</label>
+<input type="file">
+</div>
+</div>
+
+</fieldset>
+
+<div class="btns">
+<button type="submit">Register</button>
+<button type="reset">Reset</button>
+</div>
+
+</form>
+
+</div>
+
+</body>
+</html>

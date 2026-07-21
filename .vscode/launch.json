@@ -1,0 +1,119 @@
+const employees = [
+  {
+    id: 1,
+    name: "Rahul",
+    salary: 50000,
+    department: "IT",
+    address: { city: "Hyderabad" }
+  },
+  {
+    id: 2,
+    name: "Sneha",
+    salary: 40000,
+    department: "HR"
+  },
+  {
+    id: 3,
+    name: "Amit",
+    salary: 70000,
+    department: "IT",
+    address: { city: "Bangalore" }
+  }
+];
+
+// 1. Optional Chaining and Nullish Coalescing
+console.log("Employee Name and City");
+employees.forEach(emp => {
+  console.log(`${emp.name} - ${emp.address?.city ?? "Unknown"}`);
+});
+
+// 2. Array Methods
+
+// forEach()
+console.log("\nEmployee Names:");
+employees.forEach(emp => console.log(emp.name));
+
+// map()
+const names = employees.map(emp => emp.name);
+console.log("\nNames Array:", names);
+
+// filter()
+const highSalary = employees.filter(emp => emp.salary > 45000);
+console.log("\nSalary > 45000:", highSalary);
+
+// reduce()
+const totalSalary = employees.reduce((sum, emp) => sum + emp.salary, 0);
+console.log("\nTotal Salary:", totalSalary);
+
+// find()
+const employee = employees.find(emp => emp.id === 2);
+console.log("\nEmployee with ID 2:", employee);
+
+// some()
+const hasHR = employees.some(emp => emp.department === "HR");
+console.log("\nAny HR Employee?", hasHR);
+
+// every()
+const allAbove30k = employees.every(emp => emp.salary > 30000);
+console.log("\nEveryone earns above 30000?", allAbove30k);
+
+// 3. Higher Order Function
+function processEmployees(callback) {
+  employees.forEach(callback);
+}
+
+console.log("\nNames:");
+processEmployees(emp => console.log(emp.name));
+
+console.log("\nSalaries:");
+processEmployees(emp => console.log(emp.salary));
+
+// 4. Closure
+function bonusAdder(bonus) {
+  return function(salary) {
+    return salary + bonus;
+  };
+}
+
+const add5000 = bonusAdder(5000);
+console.log("\nSalary after Bonus:", add5000(50000));
+
+// 5. Scope Example
+
+// Global Scope
+let company = "ABC Pvt Ltd";
+
+function scopeDemo() {
+  // Function Scope
+  let manager = "Ramesh";
+
+  if (true) {
+    // Block Scope
+    let employee = "Rahul";
+    console.log(company);
+    console.log(manager);
+    console.log(employee);
+  }
+
+  console.log(manager);
+}
+
+scopeDemo();
+
+// 6. Execution Context and Call Stack
+
+function third() {
+  console.log("Inside Third");
+}
+
+function second() {
+  console.log("Inside Second");
+  third();
+}
+
+function first() {
+  console.log("Inside First");
+  second();
+}
+
+first();

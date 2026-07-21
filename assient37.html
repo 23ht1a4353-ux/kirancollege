@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Portfolio - Advanced JavaScript</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#f4f4f4;
+}
+
+/* Navigation */
+nav{
+background:#1e3c72;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:white;
+position:sticky;
+top:0;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:20px;
+}
+
+nav ul li a{
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav ul li a:hover{
+color:yellow;
+}
+
+#clock{
+font-size:18px;
+font-weight:bold;
+}
+
+/* Welcome Message */
+#welcome{
+display:none;
+background:green;
+color:white;
+padding:15px;
+text-align:center;
+font-size:20px;
+}
+
+/* Sections */
+section{
+padding:40px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+margin-bottom:30px;
+}
+
+/* Form */
+input,textarea{
+width:100%;
+padding:10px;
+margin-top:8px;
+margin-bottom:15px;
+border:1px solid gray;
+border-radius:5px;
+}
+
+button{
+padding:12px 20px;
+background:#1e3c72;
+color:white;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#16315c;
+}
+
+.error{
+color:red;
+font-size:14px;
+margin-top:-10px;
+margin-bottom:10px;
+}
+
+.success{
+color:green;
+font-weight:bold;
+margin-top:10px;
+}
+
+#uploadResult,
+#portfolioData,
+#clickedLink{
+margin-top:20px;
+font-size:18px;
+font-weight:bold;
+color:blue;
+}
+
+footer{
+background:#1e3c72;
+color:white;
+text-align:center;
+padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Welcome -->
+<div id="welcome">
+🎉 Welcome to My Portfolio Website
+</div>
+
+<!-- Navigation -->
+<nav>
+
+<h2>Student Portfolio</h2>
+
+<ul>
+
+<li><a href="#about">About</a></li>
+
+<li><a href="#skills">Skills</a></li>
+
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div id="clock"></div>
+
+</nav>
+
+<!-- Event Object Result -->
+<div id="clickedLink" style="text-align:center;padding:15px;"></div>
+
+<!-- About -->
+<section id="about">
+
+<div class="card">
+
+<h2>About Me</h2>
+
+<p>
+Hello! I am a student learning HTML, CSS and JavaScript.
+This portfolio demonstrates advanced JavaScript concepts.
+</p>
+
+</div>
+
+</section>
+
+<!-- Skills -->
+<section id="skills">
+
+<div class="card">
+
+<h2>Skills</h2>
+
+<ul>
+
+<li>HTML</li>
+
+<li>CSS</li>
+
+<li>JavaScript</li>
+
+<li>React</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- Resume Upload -->
+<section>
+
+<div class="card">
+
+<h2>Resume Upload (Promise Example)</h2>
+
+<button onclick="uploadResume()">
+Upload Resume
+</button>
+
+<div id="uploadResult"></div>
+
+</div>
+
+</section>
+
+<!-- Async Data -->
+<section>
+
+<div class="card">
+
+<h2>Portfolio Information</h2>
+
+<button onclick="loadPortfolio()">
+Load Portfolio
+</button>
+
+<div id="portfolioData"></div>
+
+</div>
+
+</section>
+
+<!-- Contact Form -->
+<section id="contact">
+
+<div class="card">
+
+<h2>Contact Form</h2>
+
+<form id="contactForm">
+
+<input
+type="text"
+id="name"
+placeholder="Enter Name">
+
+<div class="error" id="nameError"></div>
+
+<input
+type="email"
+id="email"
+placeholder="Enter Email">
+
+<div class="error" id="emailError"></div>
+
+<input
+type="text"
+id="phone"
+placeholder="Enter Phone Number">
+
+<div class="error" id="phoneError"></div>
+
+<textarea
+id="message"
+rows="5"
+placeholder="Enter Message"></textarea>
+
+<div class="error" id="messageError"></div>
+
+<button type="submit">
+Submit
+</button>
+
+</form>
+
+<div id="formSuccess" class="success"></div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Student Portfolio
+
+</footer>
+
+<script>
+
+/* ===========================
+1. EVENT OBJECT
+=========================== */
+
+let links=document.querySelectorAll("nav a");
+
+links.forEach(function(link){
+
+link.addEventListener("click",function(event){
+
+document.getElementById("clickedLink").innerHTML=
+"You clicked : "+event.target.innerHTML;
+
+});
+
+});
+
+
+/* ===========================
+2. setTimeout
+=========================== */
+
+setTimeout(function(){
+
+document.getElementById("welcome").style.display="block";
+
+},3000);
+
+
+setTimeout(function(){
+
+document.getElementById("welcome").style.display="none";
+
+},7000);
+
+
+/* ===========================
+3. setInterval Digital Clock
+=========================== */
+
+setInterval(function(){
+
+let date=new Date();
+
+document.getElementById("clock").innerHTML=
+date.toLocaleTimeString();
+
+},1000);
+
+
+/* ===========================
+4. Callback Function
+=========================== */
+
+function successCallback(){
+
+document.getElementById("formSuccess").innerHTML=
+"✔ Form Submitted Successfully";
+
+}
+
+
+/* ===========================
+5. Form Validation
+=========================== */
+
+document.getElementById("contactForm")
+.addEventListener("submit",function(event){
+
+event.preventDefault();
+
+/* Clear Errors */
+
+nameError.innerHTML="";
+emailError.innerHTML="";
+phoneError.innerHTML="";
+messageError.innerHTML="";
+formSuccess.innerHTML="";
+
+let valid=true;
+
+let name=document.getElementById("name").value.trim();
+
+let email=document.getElementById("email").value.trim();
+
+let phone=document.getElementById("phone").value.trim();
+
+let message=document.getElementById("message").value.trim();
+
+/* Name */
+
+if(name==""){
+
+nameError.innerHTML="Name cannot be empty";
+
+valid=false;
+
+}
+
+/* Email */
+
+let emailPattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+if(!email.match(emailPattern)){
+
+emailError.innerHTML="Invalid Email";
+
+valid=false;
+
+}
+
+/* Phone */
+
+let phonePattern=/^[0-9]{10}$/;
+
+if(!phone.match(phonePattern)){
+
+phoneError.innerHTML="Phone must contain exactly 10 digits";
+
+valid=false;
+
+}
+
+/* Message */
+
+if(message.length<20){
+
+messageError.innerHTML=
+"Message must contain at least 20 characters";
+
+valid=false;
+
+}
+
+/* Callback */
+
+if(valid){
+
+successCallback();
+
+}
+
+});
+
+
+/* ===========================
+6. Promise
+=========================== */
+
+function uploadResume(){
+
+document.getElementById("uploadResult").innerHTML=
+"Uploading...";
+
+let upload=new Promise(function(resolve,reject){
+
+setTimeout(function(){
+
+let success=Math.random()>0.5;
+
+if(success){
+
+resolve("Resume Uploaded Successfully");
+
+}
+
+else{
+
+reject("Resume Upload Failed");
+
+}
+
+},2000);
+
+});
+
+upload.then(function(result){
+
+uploadResult.style.color="green";
+
+uploadResult.innerHTML=result;
+
+})
+
+.catch(function(error){
+
+uploadResult.style.color="red";
+
+uploadResult.innerHTML=error;
+
+});
+
+}
+
+
+/* ===========================
+7. Async Await
+8. Error Handling
+=========================== */
+
+async function loadPortfolio(){
+
+try{
+
+document.getElementById("portfolioData").innerHTML=
+"Loading...";
+
+let data=await fetchPortfolio();
+
+portfolioData.innerHTML=data;
+
+}
+
+catch(error){
+
+portfolioData.style.color="red";
+
+portfolioData.innerHTML=error;
+
+}
+
+}
+
+
+function fetchPortfolio(){
+
+return new Promise(function(resolve,reject){
+
+setTimeout(function(){
+
+let success=true;
+
+/* Change to false to test catch block */
+
+if(success){
+
+resolve(
+
+"<h3>Student Information</h3>" +
+
+"<p>Name : John Doe</p>" +
+
+"<p>Course : B.Tech</p>" +
+
+"<p>Skills : HTML, CSS, JavaScript</p>"
+
+);
+
+}
+
+else{
+
+reject("Unable to load portfolio information.");
+
+}
+
+},2000);
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

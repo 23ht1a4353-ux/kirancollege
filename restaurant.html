@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>k.k reseo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f8f8;
+}
+
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,0.85);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+}
+
+.logo{
+    color:#ffb703;
+    font-size:28px;
+    font-weight:700;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ffb703;
+}
+
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("https://images.pexels.com/photos/27626762/pexels-photo-27626762.png?cs=srgb&dl=pexels-ansar-muhammad-380085065-27626762.jpg&fm=jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:rgb(246, 244, 244);
+}
+
+.hero-content h1{
+    font-size:65px;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    font-size:24px;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:#ffb703;
+    color:white;
+    text-decoration:none;
+    padding:14px 30px;
+    border-radius:50px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#0b0a08;
+    transform:translateY(-3px);
+}
+
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:38px;
+    margin-bottom:40px;
+    color:#333;
+}
+
+
+.about{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+    line-height:1.8;
+    color:#555;
+}
+
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card-content h3{
+    margin-bottom:10px;
+}
+
+.price{
+    color:#fb8500;
+    font-weight:bold;
+    margin:10px 0;
+}
+
+.order-btn{
+    display:inline-block;
+    background:#ffb703;
+    color:white;
+    text-decoration:none;
+    padding:8px 18px;
+    border-radius:5px;
+}
+
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:15px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+
+.review-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.review{
+    width:320px;
+    background:rgb(162, 7, 7);
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.review h4{
+    color:#040403;
+    margin-top:10px;
+}
+
+
+.contact{
+    text-align:center;
+    line-height:2;
+}
+
+
+
+
+.social a{
+    color:#ffb703;
+    text-decoration:none;
+    margin:0 10px;
+}
+
+
+@media(max-width:768px){
+
+.hero-content h1{
+    font-size:42px;
+}
+
+.hero-content p{
+    font-size:18px;
+}
+
+nav{
+    flex-direction:column;
+}
+
+nav ul{
+    margin-top:10px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">k.k reseo</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>kumar  Restaurant</h1>
+        <p>Delicious Food, Amazing Experience.</p>
+        <a href="#" class="btn">Book a Table</a>
+    </div>
+</section>
+
+
+
+<section id="menu">
+    <h2 class="section-title">Featured Menu</h2>
+
+    <div class="menu-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800" alt="Pizza">
+            <div class="card-content">
+                <h3>Pizza</h3>
+                <p>Cheesy pizza with fresh toppings.</p>
+                <div class="price">₹299</div>
+                <a href="#" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800" alt="Burger">
+            <div class="card-content">
+                <h3>Burger</h3>
+                <p>Juicy burger with crispy fries.</p>
+                <div class="price">₹199</div>
+                <a href="#" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800" alt="Pasta">
+            <div class="card-content">
+                <h3>Pasta</h3>
+                <p>Authentic creamy Italian pasta.</p>
+                <div class="price">₹249</div>
+                <a href="#" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=800" alt="Biryani">
+            <div class="card-content">
+                <h3>Biryani</h3>
+                <p>Rich and aromatic traditional biryani.</p>
+                <div class="price">₹349</div>
+                <a href="#" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800" alt="Dessert">
+            <div class="card-content">
+                <h3>Desserts</h3>
+                <p>Sweet delights and premium desserts.</p>
+                <div class="price">₹149</div>
+                <a href="#" class="order-btn">Order Now</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,404 @@
+<!-- Tells the browser that this document uses HTML5 -->
+<!DOCTYPE html>
+
+<!-- Root element of the HTML page -->
+<html lang="en">
+
+<head>
+
+    <!-- Supports all languages and symbols -->
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Text shown in the browser tab -->
+    <title>College Management System</title>
+
+    <!-- Internal CSS starts here -->
+    <style>
+
+        /* ==========================
+           Universal Selector (*)
+           Applies styles to every element
+        =========================== */
+
+        *{
+            /* Removes default outside spacing */
+            margin:0;
+
+            /* Removes default inside spacing */
+            padding:0;
+
+            /* Width and height include padding and border */
+            box-sizing:border-box;
+
+            /* Sets the font for the whole page */
+            font-family:'Poppins',sans-serif;
+        }
+
+        /* ==========================
+           Body Styling
+        =========================== */
+
+        body{
+
+            /* Official corporate gradient background */
+            background:linear-gradient(135deg,#0f2a45,#1f4d7a);
+
+            /* Flexbox is used for easy alignment */
+            display:flex;
+
+            /* Center horizontally */
+            justify-content:center;
+
+            /* Center vertically */
+            align-items:center;
+
+            /* Body takes full screen height */
+            min-height:100vh;
+
+            /* Space around the container */
+            padding:30px;
+        }
+
+        /* ==========================
+           Main Form Container
+        =========================== */
+
+        .container{
+
+            /* Width of the registration box */
+            width:850px;
+
+            /* Clean white panel */
+            background:#f8fbff;
+
+            /* Rounded corners */
+            border-radius:20px;
+
+            /* Space inside container */
+            padding:35px;
+
+            /* Shadow around the box */
+            box-shadow:0 20px 45px rgba(15,34,60,0.18);
+
+            /* Text color */
+            color:#1c2d42;
+        }
+
+        /* Heading */
+
+        .container h1{
+
+            text-align:center;
+
+            margin-bottom:10px;
+
+            font-size:35px;
+
+            color:#0f2a45;
+        }
+
+        /* Paragraph */
+
+        .container p{
+
+            text-align:center;
+
+            margin-bottom:30px;
+
+            color:#486582;
+        }
+
+        /* ==========================
+           Form Layout
+        =========================== */
+
+        form{
+
+            /* Grid layout */
+            display:grid;
+
+            /* Two equal columns */
+            grid-template-columns:repeat(2,1fr);
+
+            /* Gap between fields */
+            gap:20px;
+        }
+
+        /* Each input box */
+
+        .input-box{
+
+            display:flex;
+
+            /* Label on top, input below */
+            flex-direction:column;
+        }
+
+        /* Labels */
+
+        label{
+
+            margin-bottom:8px;
+
+            font-weight:bold;
+        }
+
+        /* Inputs, Select, Textarea */
+
+        input,
+        select,
+        textarea{
+
+            padding:14px;
+
+            border:1px solid #dce7f4;
+
+            border-radius:12px;
+
+            background:#ffffff;
+
+            outline:none;
+
+            font-size:15px;
+
+            color:#1c2d42;
+        }
+
+        /* Textarea height */
+
+        textarea{
+
+            resize:none;
+
+            height:90px;
+        }
+
+        /* Makes an element take full width */
+
+        .full{
+
+            grid-column:1/3;
+        }
+
+        /* Gender options */
+
+        .gender{
+
+            display:flex;
+
+            gap:20px;
+
+            margin-top:10px;
+        }
+
+        /* Register button */
+
+        .btn{
+
+            grid-column:1/3;
+
+            text-align:center;
+        }
+
+        button{
+
+            width:220px;
+
+            padding:14px;
+
+            background:#0f2a45;
+
+            color:#ffffff;
+
+            border:none;
+
+            border-radius:30px;
+
+            font-size:18px;
+
+            cursor:pointer;
+
+            transition:.4s;
+        }
+
+        /* Hover effect */
+
+        button:hover{
+
+            background:#1f4d7a;
+
+            transform:translateY(-5px);
+
+            box-shadow:0 10px 20px rgba(15,34,60,0.2);
+        }
+
+        /* When user focuses form fields */
+
+        input:focus,
+        select:focus,
+        textarea:focus{
+
+            border:2px solid #1f4d7a;
+
+            box-shadow:0 0 0 5px rgba(31,77,122,0.25);
+
+            outline:none;
+        }
+
+        /* Responsive Design */
+
+        @media(max-width:768px){
+
+            form{
+
+                grid-template-columns:1fr;
+            }
+
+            .full{
+
+                grid-column:1;
+            }
+
+            .btn{
+
+                grid-column:1;
+            }
+
+            .container{
+
+                width:100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<!-- Main Container -->
+
+<div class="container">
+
+    <!-- Heading -->
+    <h1>College Management System</h1>
+
+    <!-- Sub Heading -->
+    <p>Student Registration Form</p>
+
+    <!-- Form Starts -->
+    <form>
+
+        <!-- First Name -->
+        <div class="input-box">
+            <label>First Name</label>
+            <input type="text" placeholder="Enter First Name">
+        </div>
+
+        <!-- Last Name -->
+        <div class="input-box">
+            <label>Last Name</label>
+            <input type="text" placeholder="Enter Last Name">
+        </div>
+
+        <!-- Email -->
+        <div class="input-box">
+            <label>Email</label>
+            <input type="email" placeholder="Enter Email">
+        </div>
+
+        <!-- Mobile -->
+        <div class="input-box">
+            <label>Mobile Number</label>
+            <input type="tel" placeholder="Enter Mobile Number">
+        </div>
+
+        <!-- Password -->
+        <div class="input-box">
+            <label>Password</label>
+            <input type="password" placeholder="Password">
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="input-box">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Confirm Password">
+        </div>
+
+        <!-- Date -->
+        <div class="input-box">
+            <label>Date of Birth</label>
+            <input type="date">
+        </div>
+
+        <!-- Department -->
+        <div class="input-box">
+            <label>Department</label>
+
+            <select>
+
+                <option>Select Department</option>
+
+                <option>Computer Science</option>
+
+                <option>Information Technology</option>
+
+                <option>Mechanical</option>
+
+                <option>Electronics</option>
+
+            </select>
+
+        </div>
+
+        <!-- Gender -->
+        <div class="input-box full">
+
+            <label>Gender</label>
+
+            <div class="gender">
+
+                <label><input type="radio" name="gender"> Male</label>
+
+                <label><input type="radio" name="gender"> Female</label>
+
+                <label><input type="radio" name="gender"> Other</label>
+
+            </div>
+
+        </div>
+
+        <!-- Address -->
+        <div class="input-box full">
+
+            <label>Address</label>
+
+            <textarea placeholder="Enter Address"></textarea>
+
+        </div>
+
+        <!-- Upload Photo -->
+        <div class="input-box full">
+
+            <label>Upload Photo</label>
+
+            <input type="file">
+
+        </div>
+
+        <!-- Register Button -->
+        <div class="btn">
+
+            <button>Register Now</button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

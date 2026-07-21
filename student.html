@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management System</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+/* Navigation Bar */
+
+nav{
+    background:#0d47a1;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 60px;
+    position:sticky;
+    top:0;
+}
+
+.logo{
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+}
+
+nav ul li{
+    margin-left:25px;
+}
+
+nav ul li a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    transition:.4s;
+}
+
+nav ul li a:hover{
+    color:yellow;
+}
+
+/* Hero Section */
+
+.hero{
+    height:85vh;
+    background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1400&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    color:white;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:22px;
+    margin-bottom:30px;
+}
+
+.hero button{
+    padding:15px 35px;
+    border:none;
+    background:#ff9800;
+    color:white;
+    font-size:18px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.hero button:hover{
+    background:#e65100;
+}
+
+/* Dashboard */
+
+.dashboard{
+    padding:60px;
+}
+
+.dashboard h2{
+    text-align:center;
+    margin-bottom:40px;
+    color:#0d47a1;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#0d47a1;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:35px;
+    color:#ff5722;
+    font-weight:bold;
+}
+
+/* Registration Form */
+
+.registration{
+    padding:60px;
+    background:white;
+}
+
+.registration h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#0d47a1;
+}
+
+form{
+    max-width:800px;
+    margin:auto;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
+}
+
+.input-box input,
+.input-box select{
+    width:100%;
+    padding:12px;
+    border:1px solid gray;
+    border-radius:5px;
+    font-size:16px;
+}
+
+form button{
+    width:100%;
+    padding:15px;
+    background:#0d47a1;
+    color:white;
+    border:none;
+    font-size:18px;
+    cursor:pointer;
+}
+
+form button:hover{
+    background:#1565c0;
+}
+
+/* Table */
+
+.table-section{
+    padding:60px;
+}
+
+.table-section h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#0d47a1;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+table th{
+    background:#0d47a1;
+    color:white;
+}
+
+table th,
+table td{
+    border:1px solid #d94545;
+    padding:15px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#e95959;
+}
+
+/* About */
+
+.about{
+    padding:60px;
+    background:#6ab8f0;
+    text-align:center;
+}
+
+.about h2{
+    color:#0d47a1;
+    margin-bottom:20px;
+}
+
+.about p{
+    max-width:900px;
+    margin:auto;
+    line-height:30px;
+}
+
+/* Contact */
+
+.contact{
+    padding:60px;
+    text-align:center;
+}
+
+.contact h2{
+    color:#0d47a1;
+    margin-bottom:20px;
+}
+
+.contact p{
+    margin:10px;
+}
+
+/* Footer */
+
+footer{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+}
+
+nav ul{
+flex-direction:column;
+text-align:center;
+margin-top:15px;
+}
+
+nav ul li{
+margin:10px;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.dashboard,
+.registration,
+.table-section,
+.about,
+.contact{
+padding:30px;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<!-- Navigation -->
+
+<nav>
+
+<div class="logo">
+SMS
+</div>
+
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#dashboard">Dashboard</a></li>
+<li><a href="#register">Register</a></li>
+<li><a href="#students">Students</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero" id="home">
+
+<h1>Student Management System</h1>
+
+<p>Manage Student Records Easily and Efficiently</p>
+
+<button>Get Started</button>
+
+</section>
+
+<!-- Dashboard -->
+
+<section class="dashboard" id="dashboard">
+
+<h2>Dashboard</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Students</h3>
+<p>250</p>
+</div>
+
+<div class="card">
+<h3>Total Teachers</h3>
+<p>30</p>
+</div>
+
+<div class="card">
+<h3>Courses</h3>
+<p>18</p>
+</div>
+
+<div class="card">
+<h3>Departments</h3>
+<p>8</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- Registration -->
+
+<section class="registration" id="register">
+
+<h2>Student Registration Form</h2>
+
+<form>
+
+<div class="input-box">
+<label>Student Name</label>
+<input type="text" placeholder="Enter Name">
+</div>
+
+<div class="input-box">
+<label>Email</label>
+<input type="email" placeholder="Enter Email">
+</div>
+
+<div class="input-box">
+<label>Phone Number</label>
+<input type="tel" placeholder="Enter Phone Number">
+</div>
+
+<div class="input-box">
+<label>Course</label>
+<select>
+<option>BCA</option>
+<option>B.Tech</option>
+<option>B.Sc</option>
+<option>MCA</option>
+<option>MBA</option>
+</select>
+</div>
+
+<div class="input-box">
+<label>Department</label>
+<input type="text" placeholder="Department">
+</div>
+
+<button type="submit">Register Student</button>
+
+</form>
+
+</section>
+
+<!-- Student Table -->
+
+<section class="table-section" id="students">
+
+<h2>Student Records</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Email</th>
+<th>Phone</th>
+</tr>
+
+<tr>
+<td>101</td>
+<td>Rahul</td>
+<td>B.Tech</td>
+<td>rahul@gmail.com</td>
+<td>9876543210</td>
+</tr>
+
+<tr>
+<td>102</td>
+<td>Priya</td>
+<td>BCA</td>
+<td>priya@gmail.com</td>
+<td>9876543211</td>
+</tr>
+
+<tr>
+<td>103</td>
+<td>Arjun</td>
+<td>MCA</td>
+<td>arjun@gmail.com</td>
+<td>9876543212</td>
+</tr>
+
+<tr>
+<td>104</td>
+<td>Sneha</td>
+<td>MBA</td>
+<td>sneha@gmail.com</td>
+<td>9876543213</td>
+</tr>
+
+</table>
+
+</section>
+
+<!-- About -->
+
+<section class="about" id="about">
+
+<h2>About Student Management System</h2>
+
+<p>
+The Student Management System helps educational institutions manage student
+records efficiently. It provides an easy interface for student registration,
+course management, attendance tracking, and maintaining academic records.
+</p>
+
+</section>
+
+<!-- Contact -->
+
+<section class="contact" id="contact">
+
+<h2>Contact Us</h2>
+
+<p>📧 Email: admin@sms.com</p>
+
+<p>📞 Phone: +91 9876543210</p>
+
+<p>📍 Address: Hyderabad, India</p>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<h3>© 2026 Student Management System | Designed with HTML & CSS</h3>
+
+</footer>
+
+</body>
+</html>

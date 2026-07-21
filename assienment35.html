@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Data Analyzer</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f7fc;
+            padding:30px;
+        }
+
+        .container{
+            max-width:900px;
+            margin:auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h1{
+            text-align:center;
+            color:#0d6efd;
+            margin-bottom:20px;
+        }
+
+        h2{
+            color:#444;
+            margin-top:20px;
+        }
+
+        pre{
+            background:#eee;
+            padding:15px;
+            border-radius:8px;
+            overflow:auto;
+        }
+
+        p{
+            margin:10px 0;
+            line-height:1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Employee Data Analyzer</h1>
+
+<p>
+Open the browser <b>Console (F12 → Console)</b> to view all JavaScript outputs.
+</p>
+
+<h2>Employee Data</h2>
+
+<pre id="output"></pre>
+
+</div>
+
+<script>
+
+// =====================================================
+// Employee Data
+// =====================================================
+
+const employees = [
+{
+id:1,
+name:"Rahul",
+salary:50000,
+department:"IT",
+address:{city:"Hyderabad"}
+},
+
+{
+id:2,
+name:"Sneha",
+salary:40000,
+department:"HR"
+},
+
+{
+id:3,
+name:"Amit",
+salary:70000,
+department:"IT",
+address:{city:"Bangalore"}
+}
+
+];
+
+document.getElementById("output").textContent =
+JSON.stringify(employees,null,2);
+
+
+// =====================================================
+// 1. Optional Chaining and Nullish Coalescing
+// =====================================================
+
+console.log("----- Employee Name and City -----");
+
+employees.forEach(emp=>{
+
+console.log(
+emp.name,
+"-",
+emp.address?.city ?? "Unknown"
+);
+
+});
+
+
+// =====================================================
+// 2. Array Methods
+// =====================================================
+
+// forEach()
+
+console.log("\nEmployee Names");
+
+employees.forEach(emp=>console.log(emp.name));
+
+
+// map()
+
+const names = employees.map(emp=>emp.name);
+
+console.log("\nNames Array");
+console.log(names);
+
+
+// filter()
+
+const highSalary = employees.filter(emp=>emp.salary>45000);
+
+console.log("\nSalary > 45000");
+console.log(highSalary);
+
+
+// reduce()
+
+const totalSalary =
+employees.reduce((sum,emp)=>sum+emp.salary,0);
+
+console.log("\nTotal Salary");
+console.log(totalSalary);
+
+
+// find()
+
+const employee2 =
+employees.find(emp=>emp.id===2);
+
+console.log("\nEmployee ID 2");
+console.log(employee2);
+
+
+// some()
+
+const hrEmployee =
+employees.some(emp=>emp.department==="HR");
+
+console.log("\nAny HR Employee?");
+console.log(hrEmployee);
+
+
+// every()
+
+const salaryAbove30000 =
+employees.every(emp=>emp.salary>30000);
+
+console.log("\nEvery Salary > 30000?");
+console.log(salaryAbove30000);
+
+
+
+// =====================================================
+// 3. Higher Order Function
+// =====================================================
+
+function processEmployees(callback){
+
+employees.forEach(callback);
+
+}
+
+console.log("\nHigher Order Function");
+
+processEmployees(emp=>{
+
+console.log("Name:",emp.name);
+
+});
+
+processEmployees(emp=>{
+
+console.log("Salary:",emp.salary);
+
+});
+
+
+
+// =====================================================
+// 4. Closure Example
+// =====================================================
+
+function bonusAdder(bonus){
+
+return function(salary){
+
+return salary+bonus;
+
+}
+
+}
+
+const addBonus = bonusAdder(5000);
+
+console.log("\nClosure Example");
+
+console.log(addBonus(50000));
+console.log(addBonus(40000));
+
+
+
+
+// =====================================================
+// 5. Scope Example
+// =====================================================
+
+// Global Scope
+
+let company="ABC Technologies";
+
+function scopeDemo(){
+
+// Function Scope
+
+let manager="Ramesh";
+
+if(true){
+
+// Block Scope
+
+let employee="Rahul";
+
+console.log(employee);
+
+}
+
+console.log(manager);
+
+console.log(company);
+
+}
+
+console.log("\nScope Example");
+
+scopeDemo();
+
+
+
+
+// =====================================================
+// 6. Execution Context & Call Stack
+// =====================================================
+
+function third(){
+
+console.log("Inside Third Function");
+
+}
+
+function second(){
+
+console.log("Inside Second Function");
+
+third();
+
+}
+
+function first(){
+
+console.log("Inside First Function");
+
+second();
+
+}
+
+console.log("\nExecution Context");
+
+first();
+
+</script>
+
+</body>
+</html> 

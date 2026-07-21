@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Bulb Switch</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, sans-serif;
+    }
+
+    body{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        background:#222;
+    }
+
+    .container{
+        text-align:center;
+        background:#fff;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 0 20px rgba(0,0,0,0.4);
+    }
+
+    h1{
+        margin-bottom:20px;
+        color:#333;
+    }
+
+    /* Bulb */
+    #bulb{
+        width:150px;
+        height:150px;
+        background:#777;
+        border-radius:50%;
+        margin:20px auto;
+        border:5px solid #444;
+        transition:0.4s;
+    }
+
+    /* Bulb Base */
+    #bulb::after{
+        content:"";
+        display:block;
+        width:50px;
+        height:40px;
+        background:#555;
+        margin:145px auto 0;
+        border-radius:0 0 10px 10px;
+    }
+
+    .buttons{
+        margin-top:70px;
+    }
+
+    button{
+        padding:10px 20px;
+        font-size:18px;
+        border:none;
+        border-radius:8px;
+        cursor:pointer;
+        margin:10px;
+        color:white;
+    }
+
+    .on{
+        background:green;
+    }
+
+    .off{
+        background:red;
+    }
+
+    button:hover{
+        opacity:0.8;
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>💡 Light Bulb</h1>
+
+    <div id="bulb"></div>
+
+    <div class="buttons">
+        <button class="on" onclick="switchOn()">Switch ON</button>
+        <button class="off" onclick="switchOff()">Switch OFF</button>
+    </div>
+</div>
+
+<script>
+function switchOn(){
+    document.getElementById("bulb").style.background = "yellow";
+    document.getElementById("bulb").style.boxShadow =
+        "0 0 40px yellow, 0 0 80px gold";
+}
+
+function switchOff(){
+    document.getElementById("bulb").style.background = "#777";
+    document.getElementById("bulb").style.boxShadow = "none";
+}
+</script>
+
+</body>
+</html>
