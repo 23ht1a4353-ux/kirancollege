@@ -1,440 +1,362 @@
-<!-- Tells the browser that this document uses HTML5 -->
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Management System</title>
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:'Poppins',sans-serif;
-        }
-        body{
-            background:linear-gradient(180deg,#eef4ff 0%,#dde7ff 100%);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            min-height:100vh;
-            padding:34px 20px;
-            color:#12264b;
-        }
-        .container{
-            width:100%;
-            max-width:860px;
-            background:rgba(255,255,255,0.94);
-            border-radius:34px;
-            padding:36px;
-            box-shadow:0 35px 90px rgba(49,82,164,0.12);
-            color:#12264b;
-            border:1px solid rgba(255,255,255,0.88);
-        }
-        .container h1{
-            text-align:center;
-            <style>
-            /* Google Font */
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-            *{
-                margin:0;
-                padding:0;
-                box-sizing:border-box;
-                font-family:'Poppins',sans-serif;
-            }
-
-            body{
-                min-height:100vh;
-                display:flex;
-                justify-content:center;
-                align-items:center;
-                padding:40px 20px;
-                background:linear-gradient(135deg,#0f2a45,#1f4d7a,#4f83cc);
-            }
-
-            .container{
-
-                width:100%;
-                max-width:950px;
-
-                background:rgba(255,255,255,.97);
-
-                border-radius:25px;
-
-                padding:45px;
-
-                box-shadow:0 20px 50px rgba(0,0,0,.18);
-
-                backdrop-filter:blur(10px);
-
-            }
-
-            .container h1{
-
-                text-align:center;
-
-                color:#0f2a45;
-
-                font-size:2.2rem;
-
-                font-weight:700;
-
-                margin-bottom:10px;
-
-            }
-
-            .container p{
-
-                text-align:center;
-
-                color:#6c757d;
-
-                margin-bottom:35px;
-
-            }
-
-            form{
-
-                display:grid;
-
-                grid-template-columns:repeat(2,1fr);
-
-                gap:25px;
-
-            }
-
-            .input-box{
-
-                display:flex;
-
-                flex-direction:column;
-
-            }
-
-            label{
-
-                font-size:15px;
-
-                font-weight:600;
-
-                margin-bottom:8px;
-
-                color:#1b3552;
-
-            }
-
-            input,
-            select,
-            textarea{
-
-                width:100%;
-
-                padding:15px 18px;
-
-                border:1px solid #d6dde8;
-
-                border-radius:12px;
-
-                font-size:15px;
-
-                transition:.35s;
-
-                background:#fff;
-
-            }
-
-            textarea{
-
-                resize:none;
-
-                height:110px;
-
-            }
-
-            input:focus,
-            select:focus,
-            textarea:focus{
-
-                border-color:#1565c0;
-
-                box-shadow:0 0 12px rgba(21,101,192,.25);
-
-                transform:translateY(-2px);
-
-                outline:none;
-
-            }
-
-            .full{
-
-                grid-column:span 2;
-
-            }
-
-            .gender{
-
-                display:flex;
-
-                flex-wrap:wrap;
-
-                gap:25px;
-
-                padding-top:10px;
-
-            }
-
-            .gender label{
-
-                display:flex;
-
-                align-items:center;
-
-                gap:8px;
-
-                font-weight:500;
-
-            }
-
-            input[type=file]{
-
-                padding:12px;
-
-                background:#f8fbff;
-
-            }
-
-            .btn{
-
-                grid-column:span 2;
-
-                display:flex;
-
-                justify-content:center;
-
-                margin-top:10px;
-
-            }
-
-            button{
-
-                width:250px;
-
-                padding:15px;
-
-                border:none;
-
-                border-radius:50px;
-
-                background:linear-gradient(135deg,#0f2a45,#1565c0);
-
-                color:#fff;
-
-                font-size:18px;
-
-                font-weight:600;
-
-                cursor:pointer;
-
-                transition:.4s;
-
-            }
-
-            button:hover{
-
-                transform:translateY(-5px);
-
-                box-shadow:0 15px 30px rgba(21,101,192,.35);
-
-            }
-
-            button:active{
-
-                transform:scale(.98);
-
-            }
-
-            /* logo helpers */
-            .logo-wrap{display:flex;justify-content:center;margin-bottom:18px}
-            .logo-img{max-width:120px;height:auto;border-radius:10px}
-
-            /* ==========================
-                  Tablet
-            ========================== */
-
-            @media (max-width:992px){
-
-            .container{
-
-                padding:35px;
-
-            }
-
-            .container h1{
-
-                font-size:32px;
-
-            }
-
-            }
-
-            /* ==========================
-                  Mobile
-            ========================== */
-
-            @media (max-width:768px){
-
-            body{
-
-                padding:20px;
-
-            }
-
-            .container{
-
-                padding:25px;
-
-                border-radius:18px;
-
-            }
-
-            form{
-
-                grid-template-columns:1fr;
-
-                gap:18px;
-
-            }
-
-            .full{
-
-                grid-column:span 1;
-
-            }
-
-            .btn{
-
-                grid-column:span 1;
-
-            }
-
-            button{
-
-                width:100%;
-
-            }
-
-            .gender{
-
-                flex-direction:column;
-
-                gap:12px;
-
-            }
-
-            .container h1{
-
-                font-size:28px;
-
-            }
-
-            }
-
-            /* ==========================
-                Small Mobile
-            ========================== */
-
-            @media (max-width:480px){
-
-            .container{
-
-                padding:18px;
-
-            }
-
-            .container h1{
-
-                font-size:24px;
-
-            }
-
-            .container p{
-
-                font-size:14px;
-
-            }
-
-            label{
-
-                font-size:14px;
-
-            }
-
-            input,
-
-            select,
-
-            textarea{
-
-                font-size:14px;
-
-                padding:13px;
-
-            }
-
-            button{
-
-                font-size:16px;
-
-                padding:14px;
-
-            }
-
-            }
-
-            </style>
-        <div class="input-box">
-            <label>Password</label>
-            <input type="password" placeholder="Password">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>College Management System Registration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg1: #eef4ff;
+      --bg2: #dfe8ff;
+      --surface: #ffffff;
+      --surface-strong: rgba(255,255,255,0.96);
+      --text: #12264b;
+      --muted: #52607d;
+      --primary: #3f6bff;
+      --primary-strong: #2f4bee;
+      --radius: 22px;
+      --radius-sm: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 940px;
+      background: var(--surface-strong);
+      border-radius: 32px;
+      box-shadow: 0 24px 80px rgba(41, 82, 159, 0.12);
+      border: 1px solid rgba(111, 137, 206, 0.14);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 0;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, rgba(63, 107, 255, 0.12), rgba(47, 75, 238, 0.06));
+      padding: 34px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .hero .logo {
+      width: 88px;
+      height: 88px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 16px 36px rgba(30, 66, 157, 0.16);
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      line-height: 1.1;
+      color: #11264b;
+    }
+
+    .hero p {
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .hero .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .hero .stat {
+      background: rgba(255, 255, 255, 0.88);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: inset 0 0 0 1px rgba(36, 79, 175, 0.05);
+    }
+
+    .hero .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      color: #12264b;
+      margin-bottom: 6px;
+    }
+
+    .hero .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .form-panel {
+      padding: 32px 34px;
+    }
+
+    .form-panel h2 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: #0f2344;
+    }
+
+    .form-panel p {
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 26px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #34446f;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(86, 102, 149, 0.14);
+      background: #fbfdff;
+      color: #172c4d;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 8px rgba(63, 107, 255, 0.1);
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .full {
+      grid-column: span 2;
+    }
+
+    .gender {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding-top: 8px;
+    }
+
+    .gender label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .submit-row {
+      grid-column: span 2;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    button {
+      width: 100%;
+      max-width: 260px;
+      padding: 14px 22px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: white;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(63, 107, 255, 0.22);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 44px rgba(63, 107, 255, 0.28);
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 28px 24px;
+      }
+
+      .form-panel {
+        padding: 28px 24px 32px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 16px;
+      }
+
+      .container {
+        border-radius: 24px;
+      }
+
+      .hero .stats {
+        grid-template-columns: 1fr;
+      }
+
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: span 1;
+      }
+
+      .submit-row {
+        justify-content: stretch;
+      }
+
+      button {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWIp2sKpa1GfGyvc_WehXObOzR_o2DLa351DDpkjG5cQ&s" alt="College Logo" />
+      <h1>College Management System</h1>
+      <p>Register new students quickly with a polished, secure, and mobile-friendly admission form designed for modern campuses.</p>
+      <div class="stats">
+        <div class="stat">
+          <strong>Fast Enrollment</strong>
+          <span>Complete every registration in under 2 minutes.</span>
         </div>
-        <div class="input-box">
-            <label>Confirm Password</label>
-            <input type="password" placeholder="Confirm Password">
+        <div class="stat">
+          <strong>Responsive Design</strong>
+          <span>Works beautifully on mobile, tablet, and desktop.</span>
         </div>
-        <div class="input-box">
-            <label>Date of Birth</label>
-            <input type="date">
+      </div>
+    </section>
+
+    <section class="form-panel">
+      <h2>Student Registration</h2>
+      <p>Please provide accurate information to complete your college admission registration.</p>
+
+      <form novalidate>
+        <div class="field">
+          <label for="first_name">First Name</label>
+          <input id="first_name" type="text" placeholder="First name" required />
         </div>
-        <div class="input-box">
-            <label>Department</label>
-            <select>
-                <option>Select Department</option>
-                <option>Computer Science</option>
-                <option>Information Technology</option>
-                <option>Mechanical</option>
-                <option>Electronics</option>
-            </select>
+
+        <div class="field">
+          <label for="last_name">Last Name</label>
+          <input id="last_name" type="text" placeholder="Last name" required />
         </div>
-        <div class="input-box full">
-            <label>Gender</label>
-            <div class="gender">
-                <label><input type="radio" name="gender"> Male</label>
-                <label><input type="radio" name="gender"> Female</label>
-                <label><input type="radio" name="gender"> Other</label>
-            </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="name@example.com" required />
         </div>
-        <div class="input-box full">
-            <label>Address</label>
-            <textarea placeholder="Enter Address"></textarea>
+
+        <div class="field">
+          <label for="mobile">Mobile Number</label>
+          <input id="mobile" type="tel" placeholder="+91 98765 43210" />
         </div>
-        <div class="input-box full">
-            <label>Upload Photo</label>
-            <input type="file">
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" type="password" placeholder="Password" required />
         </div>
-        <div class="btn">
-            <button>Register Now</button>
+
+        <div class="field">
+          <label for="confirm_password">Confirm Password</label>
+          <input id="confirm_password" type="password" placeholder="Confirm password" required />
         </div>
-    </form>
-</div>
+
+        <div class="field">
+          <label for="dob">Date of Birth</label>
+          <input id="dob" type="date" />
+        </div>
+
+        <div class="field">
+          <label for="department">Department</label>
+          <select id="department">
+            <option value="">Select Department</option>
+            <option>Computer Science</option>
+            <option>Information Technology</option>
+            <option>Mechanical</option>
+            <option>Electronics</option>
+          </select>
+        </div>
+
+        <div class="field full">
+          <label>Gender</label>
+          <div class="gender">
+            <label><input type="radio" name="gender" value="male" checked /> Male</label>
+            <label><input type="radio" name="gender" value="female" /> Female</label>
+            <label><input type="radio" name="gender" value="other" /> Other</label>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label for="address">Address</label>
+          <textarea id="address" placeholder="Street, City, State, PIN"></textarea>
+        </div>
+
+        <div class="field full">
+          <label for="photo">Upload Photo</label>
+          <input id="photo" type="file" accept="image/*" />
+        </div>
+
+        <div class="submit-row">
+          <button type="submit">Register Now</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <script>
+    const dobInput = document.getElementById('dob');
+    if (dobInput) {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      dobInput.value = `${yyyy}-${mm}-${dd}`;
+    }
+  </script>
 </body>
 </html>
