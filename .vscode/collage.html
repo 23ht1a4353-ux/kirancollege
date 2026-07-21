@@ -68,8 +68,9 @@
 
         .container{
 
-            /* Width of the registration box */
-            width:850px;
+            /* Responsive box width */
+            width:100%;
+            max-width:850px;
 
             /* Transparent white color */
             background:rgba(255,255,255,0.18);
@@ -81,13 +82,16 @@
             border-radius:20px;
 
             /* Space inside container */
-            padding:35px;
+            padding:30px;
 
             /* Shadow around the box */
             box-shadow:0 15px 35px rgba(0,0,0,0.3);
 
             /* Text color */
             color:white;
+
+            /* Center in body */
+            margin:0 auto;
         }
 
         /* Heading */
@@ -151,6 +155,7 @@
         select,
         textarea{
 
+            width:100%;
             padding:12px;
 
             border:none;
@@ -241,26 +246,61 @@
 
         /* Responsive Design */
 
-        @media(max-width:768px){
+        @media (max-width:1024px) {
+            .container{
+                width:90%;
+            }
+        }
+
+        @media (max-width:768px){
+            body{
+                align-items:flex-start;
+                padding:20px;
+            }
+
+            .container{
+                width:100%;
+                padding:25px;
+                margin-top:20px;
+            }
 
             form{
-
                 grid-template-columns:1fr;
             }
 
             .full{
-
                 grid-column:1;
             }
 
             .btn{
-
                 grid-column:1;
             }
 
-            .container{
-
+            button{
                 width:100%;
+            }
+        }
+
+        @media (max-width:480px) {
+            .container{
+                padding:18px;
+                border-radius:18px;
+            }
+
+            .container h1{
+                font-size:28px;
+            }
+
+            .container p{
+                font-size:14px;
+                margin-bottom:20px;
+            }
+
+            input,
+            select,
+            textarea{
+                padding:14px;
+                font-size:14px;
             }
         }
 
