@@ -9,351 +9,297 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>College Management System</title>
         <style>
-    /* Google Font */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+                *{
+                    margin:0;
+                    padding:0;
+                    box-sizing:border-box;
+                    font-family:'Poppins',sans-serif;
+                }
+
+            /* ==========================
+               Body Styling
+            =========================== */
+
+            body{
+
+                /* Official glossy body background */
+                background:linear-gradient(180deg,#eef4ff 0%,#dde7ff 100%);
+
+                /* Flexbox is used for easy alignment */
+                display:flex;
+
+                /* Center horizontally */
+                justify-content:center;
+
+                /* Center vertically */
+                align-items:center;
 
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-        font-family:'Poppins',sans-serif;
-    }
+                /* Body takes full screen height */
+                min-height:100vh;
 
-    body{
-        min-height:100vh;
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        padding:40px 20px;
-        background:linear-gradient(135deg,#0f2a45,#1f4d7a,#4f83cc);
-    }
+                /* Space around the container */
+                padding:34px 20px;
+                color:#12264b;
+            }
 
-    .container{
+        /* ==========================
+           Main Form Container
+        =========================== */
 
-        width:100%;
-        max-width:950px;
+            .container{
+                width:100%;
+                max-width:860px;
+                background:rgba(255,255,255,0.94);
+                backdrop-filter:blur(26px);
+                border-radius:34px;
+                padding:36px;
+                box-shadow:0 35px 90px rgba(49,82,164,0.12);
+                color:#12264b;
+                margin:0 auto;
+                border:1px solid rgba(255,255,255,0.88);
+            }
 
-        background:rgba(255,255,255,.97);
+        /* Heading */
 
-        border-radius:25px;
+        .container h1{
+            text-align:center;
+            margin-bottom:10px;
+            font-size:38px;
+            color:#10264a;
+        }
 
-        padding:45px;
+        .logo-wrap{
+            display:flex;
+            justify-content:center;
+            margin-bottom:18px;
+        }
 
-        box-shadow:0 20px 50px rgba(0,0,0,.18);
+        .logo-img{
+            max-width:110px;
+            height:auto;
+            border-radius:18px;
+            box-shadow:0 8px 20px rgba(0,0,0,0.15);
+        }
 
-        backdrop-filter:blur(10px);
+        /* Paragraph */
 
-    }
+        .container p{
+            text-align:center;
+            margin-bottom:28px;
+            color:#4e637f;
+            font-size:16px;
+        }
 
-    .container h1{
+        /* ==========================
+           Form Layout
+        =========================== */
 
-        text-align:center;
+        form{
 
-        color:#0f2a45;
+            /* Grid layout */
+            display:grid;
 
-        font-size:2.2rem;
+            /* Two equal columns */
+            grid-template-columns:repeat(2,1fr);
 
-        font-weight:700;
+            /* Gap between fields */
+            gap:20px;
+        }
 
-        margin-bottom:10px;
+        /* Each input box */
 
-    }
+        .input-box{
 
-    .container p{
+            display:flex;
 
-        text-align:center;
+            /* Label on top, input below */
+            flex-direction:column;
+        }
 
-        color:#6c757d;
+        /* Labels */
 
-        margin-bottom:35px;
+        label{
+            margin-bottom:10px;
+            font-weight:600;
+            color:#334166;
+        }
 
-    }
+        /* Inputs, Select, Textarea */
 
-    form{
+        input,
+        select,
+        textarea{
 
-        display:grid;
+            width:100%;
+            padding:16px 18px;
 
-        grid-template-columns:repeat(2,1fr);
+            border:1px solid rgba(79,93,149,0.14);
 
-        gap:25px;
+            border-radius:18px;
 
-    }
+            outline:none;
 
-    .input-box{
+            font-size:15px;
+            background:#f9fbff;
+            color:#1f2937;
+            box-shadow:0 16px 32px rgba(79,93,149,0.06);
+            transition:all 0.25s ease;
+        }
 
-        display:flex;
+        /* Textarea height */
 
-        flex-direction:column;
+        textarea{
 
-    }
+            resize:none;
 
-    label{
+            height:100px;
+        }
 
-        font-size:15px;
+        /* Makes an element take full width */
 
-        font-weight:600;
+        .full{
 
-        margin-bottom:8px;
+            grid-column:1/3;
+        }
 
-        color:#1b3552;
+        /* Gender options */
 
-    }
+        .gender{
 
-    input,
-    select,
-    textarea{
+            display:flex;
 
-        width:100%;
+            gap:18px;
 
-        padding:15px 18px;
+            margin-top:12px;
+            flex-wrap:wrap;
+        }
 
-        border:1px solid #d6dde8;
+        .gender label{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            font-weight:500;
+            color:#334166;
+        }
 
-        border-radius:12px;
+        .gender input{
+            width:auto;
+            margin:0;
+        }
 
-        font-size:15px;
+        /* Register button */
 
-        transition:.35s;
+        .btn{
 
-        background:#fff;
+            grid-column:1/3;
 
-    }
+            text-align:center;
+            margin-top:6px;
+        }
 
-    textarea{
+        button{
 
-        resize:none;
+            width:100%;
+            max-width:280px;
+            padding:16px 22px;
 
-        height:110px;
+            background:linear-gradient(135deg,#4e6bff,#2f4bee);
 
-    }
+            color:white;
 
-    input:focus,
-    select:focus,
-    textarea:focus{
+            border:none;
 
-        border-color:#1565c0;
+            border-radius:32px;
 
-        box-shadow:0 0 12px rgba(21,101,192,.25);
+            font-size:18px;
 
-        transform:translateY(-2px);
+            cursor:pointer;
 
-        outline:none;
+            transition:.25s ease;
+            box-shadow:0 18px 40px rgba(78,106,255,0.18);
+        }
 
-    }
+        /* Hover effect */
 
-    .full{
+        button:hover{
 
-        grid-column:span 2;
+            background:linear-gradient(135deg,#5f7cff,#1e3dd2);
 
-    }
+            transform:translateY(-3px);
 
-    .gender{
+            box-shadow:0 22px 48px rgba(78,106,255,0.24);
+        }
 
-        display:flex;
+        /* When user clicks input */
 
-        flex-wrap:wrap;
+        input:focus,
+        select:focus,
+        textarea:focus{
 
-        gap:25px;
+            border:1px solid #4e6bff;
+            box-shadow:0 0 0 6px rgba(78,106,255,0.14);
+        }
 
-        padding-top:10px;
+        /* Responsive Design */
 
-    }
+        @media (max-width:1024px) {
+            .container{
+                width:90%;
+            }
+        }
 
-    .gender label{
+        @media (max-width:768px){
+            body{
+                align-items:flex-start;
+                padding:18px;
+            }
 
-        display:flex;
+            .container{
+                width:100%;
+                padding:22px;
+                margin-top:18px;
+            }
 
-        align-items:center;
+            form{
+                grid-template-columns:1fr;
+            }
 
-        gap:8px;
+            .full{
+                grid-column:1;
+            }
 
-        font-weight:500;
+            .btn{
+                grid-column:1;
+            }
 
-    }
+            button{
+                width:100%;
+                max-width:100%;
+            }
+        }
 
-    input[type=file]{
+        @media (max-width:480px) {
+            .container{
+                padding:18px;
+                border-radius:18px;
+            }
 
-        padding:12px;
+            .container h1{
+                font-size:28px;
+            }
 
-        background:#f8fbff;
+            .container p{
+                font-size:14px;
+                margin-bottom:20px;
+            }
 
-    }
-
-    .btn{
-
-        grid-column:span 2;
-
-        display:flex;
-
-        justify-content:center;
-
-        margin-top:10px;
-
-    }
-
-    button{
-
-        width:250px;
-
-        padding:15px;
-
-        border:none;
-
-        border-radius:50px;
-
-        background:linear-gradient(135deg,#0f2a45,#1565c0);
-
-        color:#fff;
-
-        font-size:18px;
-
-        font-weight:600;
-
-        cursor:pointer;
-
-        transition:.4s;
-
-    }
-
-    button:hover{
-
-        transform:translateY(-5px);
-
-        box-shadow:0 15px 30px rgba(21,101,192,.35);
-
-    }
-
-    button:active{
-
-        transform:scale(.98);
-
-    }
-
-    /* logo helpers */
-    .logo-wrap{display:flex;justify-content:center;margin-bottom:18px}
-    .logo-img{max-width:120px;height:auto;border-radius:10px}
-
-    @media (max-width:992px){
-
-    .container{
-
-        padding:35px;
-
-    }
-
-    .container h1{
-
-        font-size:32px;
-
-    }
-
-    }
-
-    @media (max-width:768px){
-
-    body{
-
-        padding:20px;
-
-    }
-
-    .container{
-
-        padding:25px;
-
-        border-radius:18px;
-
-    }
-
-    form{
-
-        grid-template-columns:1fr;
-
-        gap:18px;
-
-    }
-
-    .full{
-
-        grid-column:span 1;
-
-    }
-
-    .btn{
-
-        grid-column:span 1;
-
-    }
-
-    button{
-
-        width:100%;
-
-    }
-
-    .gender{
-
-        flex-direction:column;
-
-        gap:12px;
-
-    }
-
-    .container h1{
-
-        font-size:28px;
-
-    }
-
-    }
-
-    @media (max-width:480px){
-
-    .container{
-
-        padding:18px;
-
-    }
-
-    .container h1{
-
-        font-size:24px;
-
-    }
-
-    .container p{
-
-        font-size:14px;
-
-    }
-
-    label{
-
-        font-size:14px;
-
-    }
-
-    input,
-
-    select,
-
-    textarea{
-
-        font-size:14px;
-
-        padding:13px;
-
-    }
-
-    button{
-
-        font-size:16px;
-
-        padding:14px;
-
-    }
-
-    }
+            input,
+            select,
+            textarea{
+                padding:14px;
+                font-size:14px;
+            }
+        }
 
     </style>
 
@@ -365,7 +311,7 @@
 
 <div class="container">
         <div class="logo-wrap">
-            <img class="logo-img" src="https://share.google/jksF1DfLDpclb272M" alt="College Logo">
+            <img class="logo-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWIp2sKpa1GfGyvc_WehXObOzR_o2DLa351DDpkjG5cQ&s" alt="College Logo">
         </div>
     <h1>College Management System</h1>
 
